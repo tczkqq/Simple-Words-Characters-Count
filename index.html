@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Words/Characters Count</title>
+
+    <style>
+      #text {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      #words,
+      #characters {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Simple words/characters count</h1>
+    <p>Words: <span id="words">4</span></p>
+    <p>Characters: <span id="characters">20</span></p>
+
+    <textarea id="text">Write your text here</textarea>
+  </body>
+
+  <script>
+    function countWords(str) {
+      return str.trim().split(/\s+/).length;
+    }
+
+    function countCharacters(str) {
+      return str.length;
+    }
+
+    document.getElementById("text").addEventListener("keyup", function () {
+      var words = countWords(this.value);
+      var characters = countCharacters(this.value);
+      document.getElementById("words").innerHTML = words;
+      document.getElementById("characters").innerHTML = characters;
+    });
+  </script>
+</html>
